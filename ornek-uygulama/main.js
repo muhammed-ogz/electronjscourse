@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu } = require("electron");
+const path = require('path');
 
 const isMac = process.platform == "darwin"; //mac işletim sistemleri için
 const isDev = process.env.MODE !== "yayin";
@@ -7,6 +8,9 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: isDev ? 1200 : 800,
     height: isDev ? 1000 : 650,
+    webPreferences: {
+      preload:path.join(__dirname,'preload.js')
+    }
   });
 
   win.loadFile("./renderer/index.html");
