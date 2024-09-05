@@ -16,20 +16,23 @@
         theme: {
           extend: {
             colors: {
-              baseColor: '#da373d',
+              baseColor: "#da373d",
             },
-            fontFamily : {
-              'baseFont' : 'Chakra Petch'
-            }
-          }
-        }
-      }
+            fontFamily: {
+              baseFont: "Chakra Petch",
+            },
+          },
+        },
+      };
     </script>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
     <script src="./js/renderer.js" defer></script>
   </head>
   <body>
-    <div class="bg-orange-200 font-baseFont">
-      <h1 class="text-center text-2xl antialiased pt-12">Resim Yeniden Boyutlandırma Uygulaması</h1>
+    <div class="bg-orange-400 font-baseFont">
+      <h1 class="text-center text-2xl antialiased pt-12">
+        Resim Yeniden Boyutlandırma Uygulaması
+      </h1>
       <div
         class="max-w-xl m-auto h-screen flex flex-col align-center justify-center"
       >
@@ -44,6 +47,52 @@
             <input id="img" type="file" class="hidden" />
           </label>
         </div>
+
+        <form id="img-form" class="hidden">
+          <div class="mt-6">
+            <label
+              class="mt-1 block text-white text-center w-80 m-auto py-3 shadow-sm border-gray-300 rounded-md"
+            >
+              Genişlik
+            </label>
+            <input
+              type="number"
+              id="width"
+              name="width"
+              class="mt-1 block w-80 m-auto p-3 shadow-sm border-gray-300 rounded-md"
+              placeholder="Genişlik Giriniz..."
+            />
+          </div>
+          <div class="mt-6">
+            <label
+              class="mt-1 block text-white text-center w-80 m-auto py-3 shadow-sm border-gray-300 rounded-md"
+            >
+              Yükseklik
+            </label>
+            <input
+              type="number"
+              id="height"
+              name="height"
+              class="mt-1 block w-80 m-auto p-3 shadow-sm border-gray-300 rounded-md"
+              placeholder="Yükseklik Giriniz..."
+            />
+          </div>
+          <div class="md-6">
+            <button
+              class="w-80 m-auto flex align-items mt-5 justify-center py-2 px-4 border border-transparent shadow-sm text-white rounded-md bg-violet-400 hover:bg-violet-500 focus:ring-2 focus:ring-offset-2 focus:ring-violet-600"
+            >
+              Yeniden Boyutlandırma İşlemini Başlat
+            </button>
+          </div>
+        </form>
+        <p class="hidden text-white text-lg text-center font-baseFont mt-6">
+          <strong>Dosya : </strong>
+          <span id="filename" class="text-black"></span>
+        </p>
+        <p class="hidden text-white text-lg text-center font-baseFont mt-6">
+          <strong>Çıktı : </strong>
+          <span id="filename" class="text-black"></span>
+        </p>
       </div>
     </div>
   </body>
