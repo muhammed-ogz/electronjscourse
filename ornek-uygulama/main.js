@@ -1,7 +1,7 @@
 const { app, BrowserWindow, Menu } = require("electron");
-const path = require('path');
+const path = require('node:path');
 
-const isMac = process.platform == "darwin"; //mac işletim sistemleri için
+const isMac = process.platform === "darwin"; //mac işletim sistemleri için
 const isDev = process.env.MODE !== "yayin";
 
 const createWindow = () => {

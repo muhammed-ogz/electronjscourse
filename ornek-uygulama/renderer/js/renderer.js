@@ -11,6 +11,7 @@ function imageUpload (e){
     if(!isİmage(file)){
         console.log('Lütfen doğru uzantılı bir dosya yükleyiniz..');
         return;
+    // biome-ignore lint/style/noUselessElse: <explanation>
     }else{
         console.log('Başarılı bir şekilde dosya yüklendi');
         form.style.display = 'block';
@@ -30,9 +31,11 @@ function imageUpload (e){
 
 }
 
+console.log(versions.node())
+
 function isİmage(file){
     const extensions = ['image/gif','image/jpg','image/jpeg'];
-    return file && extensions.includes(file['type']);
+    return file && extensions.includes(file.type);
 }
 
 img.addEventListener('change',imageUpload);
