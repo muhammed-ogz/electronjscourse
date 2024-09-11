@@ -1,23 +1,30 @@
 const { app, BrowserWindow, Menu } = require("electron");
 const path = require('node:path');
-
 const isMac = process.platform === "darwin"; //mac işletim sistemleri için
 const isDev = process.env.MODE !== "yayin";
+
+
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: isDev ? 1200 : 800,
     height: isDev ? 1000 : 650,
     webPreferences: {
-      preload:path.join(__dirname,'preload.js')
+      preload:path.join(__dirname,'preload.js'),
+      nodeIntegration: true,
+      contextIsolation: true,
     }
   });
+
 
   win.loadFile("./renderer/index.html");
   if (isDev) {
     win.webContents.openDevTools();
   }
 };
+
+console.log(app.getPath('home'));
+
 
 const hakkimizdaWindow = () => {
   const win2 = new BrowserWindow({

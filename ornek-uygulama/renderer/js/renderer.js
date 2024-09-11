@@ -5,6 +5,9 @@ const outputPath = document.querySelector('#output-path');
 const widthInput = document.querySelector('#width');
 const heightInput = document.querySelector('#height');
 
+console.log(os.homedir());
+console.log(path.join("a","b"))
+
 function imageUpload (e){
 
     const file = e.target.files[0];
@@ -27,11 +30,11 @@ function imageUpload (e){
            heightInput.value=this.height; 
         };
 
+        outputPath.innerText = path.join(os.homedir(),'reboyut');
+
     }
 
 }
-
-console.log(versions.node())
 
 function isİmage(file){
     const extensions = ['image/gif','image/jpg','image/jpeg'];
